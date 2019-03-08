@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import logging
-
-from scrapy import Selector, Spider, Request, log
+from scrapy import Selector, Spider, Request
 from scrapy.http import Response
 
 from bookspider.items import EssayItem
@@ -24,5 +22,5 @@ class BiQiuGeSpider(Spider):
         title = div.xpath("h1/text()").get()
         content_list = div.xpath("div[@id='content']/text()").getall()
         content = ''.join(content_list).strip()
-        self.log(title, level=log.INFO)
+        self.logger.info(title)
         return EssayItem(title=title, content=content)
