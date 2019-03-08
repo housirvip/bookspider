@@ -56,7 +56,6 @@ TELNETCONSOLE_ENABLED = False
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'bookspider.middlewares.ProxyMiddleware': 300,
-    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': 400,
 }
 
 RETRY_ENABLED = True
