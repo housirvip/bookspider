@@ -54,9 +54,9 @@ TELNETCONSOLE_ENABLED = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    'bookspider.middlewares.ProxyMiddleware': 300,
-}
+# DOWNLOADER_MIDDLEWARES = {
+#     'bookspider.middlewares.ProxyMiddleware': 300,
+# }
 
 RETRY_ENABLED = True
 RETRY_TIMES = 3

@@ -22,7 +22,8 @@ proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPa
 
 
 class ProxyMiddleware(object):
-    def process_request(self, request, spider):
+    @staticmethod
+    def process_request(request, spider):
         request.meta["proxy"] = proxyServer
         request.headers["Proxy-Authorization"] = proxyAuth
 
@@ -32,7 +33,8 @@ class BookDownloaderMiddleware(object):
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
 
-    def process_request(self, request, spider):
+    @staticmethod
+    def process_request(request, spider):
         # Called for each request that goes through the downloader
         # middleware.
 
@@ -44,7 +46,8 @@ class BookDownloaderMiddleware(object):
         #   installed downloader middleware will be called
         return None
 
-    def process_response(self, request, response, spider):
+    @staticmethod
+    def process_response(request, response, spider):
         # Called with the response returned from the downloader.
 
         # Must either;
@@ -63,5 +66,6 @@ class BookDownloaderMiddleware(object):
         # - return a Request object: stops process_exception() chain
         pass
 
-    def spider_opened(self, spider):
+    @staticmethod
+    def spider_opened(spider):
         spider.logger.info('Spider opened: %s' % spider.name)

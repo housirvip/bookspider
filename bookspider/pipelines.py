@@ -7,5 +7,6 @@
 
 
 class BookPipeline(object):
-    def process_item(self, item, spider):
+    @staticmethod
+    def process_item(item, spider):
         return item
